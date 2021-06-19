@@ -38,7 +38,7 @@ dependencies {
 gradlePlugin {
     // Define the plugin
     val greeting by plugins.creating {
-        id = "com.github.jomof.prefab.plugin"
+        id = "prefab-plugin"
         implementationClass = "com.github.jomof.prefab.plugin.PrefabPlugin"
     }
 }

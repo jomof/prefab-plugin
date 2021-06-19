@@ -19,7 +19,7 @@ class PrefabPluginFunctionalTest {
         projectDir.resolve("settings.gradle").writeText("")
         projectDir.resolve("build.gradle").writeText("""
             plugins {
-                id('com.github.jomof.prefab.plugin')
+                id('prefab-plugin')
             }
         """)
 
