@@ -5,6 +5,7 @@ package com.github.jomof.prefab.plugin
 
 import java.io.File
 import org.gradle.testkit.runner.GradleRunner
+import java.io.Writer
 import kotlin.test.Test
 import kotlin.test.assertTrue
 
@@ -44,9 +45,24 @@ class PrefabPluginFunctionalTest {
         // Run the build
         val runner = GradleRunner.create()
         runner.forwardOutput()
+        runner.forwardStdError(object : Writer() {
+            override fun close() {}
+            override fun flush() {}
+            override fun write(cbuf: CharArray, off: Int, len: Int) {
+                for(i in off until off + len) print(cbuf[i])
+            }
+        })
+        runner.forwardStdOutput(object : Writer() {
+            override fun close() {}
+            override fun flush() {}
+            override fun write(cbuf: CharArray, off: Int, len: Int) {
+                for(i in off until off + len) print(cbuf[i])
+            }
+        })
         runner.withPluginClasspath()
         runner.withArguments("buildAllPrefab", "--stacktrace", "--info")
         runner.withProjectDir(projectDir)
+
         runner.build()
 
         // Verify the result
