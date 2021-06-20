@@ -3,10 +3,8 @@
  */
 package com.github.jomof.prefab.plugin
 
-import org.gradle.api.provider.Property
 import org.gradle.testfixtures.ProjectBuilder
 import kotlin.test.Test
-import kotlin.test.assertNotNull
 
 
 class PrefabPluginTest {

@@ -45,9 +45,9 @@ class PrefabPluginFunctionalTest {
         val runner = GradleRunner.create()
         runner.forwardOutput()
         runner.withPluginClasspath()
-        runner.withArguments("buildAllPrefab", "--stacktrace")
+        runner.withArguments("buildAllPrefab", "--stacktrace", "--info")
         runner.withProjectDir(projectDir)
-        val result = runner.build();
+        runner.build()
 
         // Verify the result
         //assertTrue(result.output.contains("Hello from plugin 'com.github.jomof.prefab.plugin'"))
