@@ -174,7 +174,7 @@
       <option name="presentableId" value="Default" />
       <updated>1624123065724</updated>
       <workItem from="1624123067248" duration="20000" />
-      <workItem from="1624123158688" duration="19875000" />
+      <workItem from="1624123158688" duration="20206000" />
     </task>
     <task id="LOCAL-00001" summary="Rename">
       <created>1624125024851</created>
@@ -211,7 +211,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624156005290</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="More provision and bootstrap">
+      <created>1624156310762</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1624156310762</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
