@@ -9,10 +9,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: read
+      packages: write
     steps:
       - uses: actions/checkout@v2
-
       - name: Build 
-        run: ./gradlew functionalTest publish --info --stacktrace
+        run: ./gradlew publish --info --stacktrace
 

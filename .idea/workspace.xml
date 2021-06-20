@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2091d9f9-603f-47cf-8493-b59b5f868a88" name="Default Changelist" comment="jitpack.yml">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugin/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/plugin/build.gradle.kts" afterDir="false" />
-    </list>
+    <list default="true" id="2091d9f9-603f-47cf-8493-b59b5f868a88" name="Default Changelist" comment="Publish" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -177,7 +174,7 @@
       <option name="presentableId" value="Default" />
       <updated>1624123065724</updated>
       <workItem from="1624123067248" duration="20000" />
-      <workItem from="1624123158688" duration="24863000" />
+      <workItem from="1624123158688" duration="25101000" />
     </task>
     <task id="LOCAL-00001" summary="Rename">
       <created>1624125024851</created>
@@ -256,7 +253,21 @@
       <option name="project" value="LOCAL" />
       <updated>1624211081812</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="jitpack.yml">
+      <created>1624212336798</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1624212336798</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Publish">
+      <created>1624212432294</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1624212432294</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -277,7 +288,8 @@
     <MESSAGE value="Unhook functional test" />
     <MESSAGE value="Forward test output" />
     <MESSAGE value="jitpack.yml" />
-    <option name="LAST_COMMIT_MESSAGE" value="jitpack.yml" />
+    <MESSAGE value="Publish" />
+    <option name="LAST_COMMIT_MESSAGE" value="Publish" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
