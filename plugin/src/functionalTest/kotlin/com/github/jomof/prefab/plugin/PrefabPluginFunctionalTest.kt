@@ -12,7 +12,8 @@ import kotlin.test.assertTrue
  * A simple functional test for the 'com.github.jomof.prefab.plugin' plugin.
  */
 class PrefabPluginFunctionalTest {
-    @Test fun `can run task`() {
+    //@Test
+    fun `can run task`() {
         // Setup the test build
         val projectDir = File("build/functionalTest")
         projectDir.deleteRecursively()

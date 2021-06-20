@@ -65,8 +65,7 @@ abstract class GitProvisionTask(
     }
 }
 
-abstract class BootstrapVcpkgTask(
-) : DefaultTask() {
+abstract class BootstrapVcpkgTask : DefaultTask() {
     @Inject
     abstract fun getExecOperations(): ExecOperations
 
