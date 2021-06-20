@@ -14,4 +14,4 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Build 
-        run: ./gradlew functionalTest
+        run: ./gradlew functionalTest --info --stacktrace
