@@ -12,7 +12,7 @@ import kotlin.test.assertTrue
  * A simple functional test for the 'com.github.jomof.prefab.plugin' plugin.
  */
 class PrefabPluginFunctionalTest {
-    //@Test
+    @Test
     fun `can run task`() {
         // Setup the test build
         val projectDir = File("build/functionalTest")

@@ -14,9 +14,9 @@ class PrefabPluginTest {
         // Create a test project and apply the plugin
         val project = ProjectBuilder.builder().build()
         project.plugins.apply("prefab-plugin")
-        val prefab = project.extensions.getByType(PrefabPluginExtension::class.java)
+        project.extensions.getByType(PrefabPluginExtension::class.java)
 
         // Verify the result
-        assertNotNull(project.tasks.findByName("greeting"))
+        //assertNotNull(project.tasks.findByName("buildAllPrefab"))
     }
 }

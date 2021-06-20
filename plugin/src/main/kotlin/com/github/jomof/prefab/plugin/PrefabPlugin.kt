@@ -91,8 +91,11 @@ data class VcpkgRepoCoordinate(
     @get:Input val tag : String
 ) {
     private val taskQualifier : String get() = sha256().substring(0..8)
+    @get:Internal
     val provisionTaskName : String get() = "cloneVcpkg-$taskQualifier"
+    @get:Internal
     val bootstrapTaskName : String get() = "bootstrapVcpkg-$taskQualifier"
+    @get:Internal
     val vcpkgExe : File get() = localFolder().resolve("vcpkg")
 }
 
@@ -109,8 +112,9 @@ fun Any.localFolder() : File {
 
 class PrefabPlugin: Plugin<Project> {
     override fun apply(project: Project) {
-        val extension = project.extensions.create("prefab", PrefabPluginExtension::class.java)
-        project.afterEvaluate { project ->
+        //val extension =
+        project.extensions.create("prefab", PrefabPluginExtension::class.java)
+        project.afterEvaluate { _ ->
             val vcpkgRepoCoordinate = VcpkgRepoCoordinate(
                 "https://github.com/microsoft/vcpkg",
                 "2021.05.12")
