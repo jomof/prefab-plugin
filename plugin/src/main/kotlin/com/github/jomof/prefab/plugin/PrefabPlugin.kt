@@ -3,18 +3,135 @@
  */
 package com.github.jomof.prefab.plugin
 
-import org.gradle.api.Project
-import org.gradle.api.Plugin
+import org.gradle.api.*
+import org.gradle.api.provider.Property
+import org.gradle.api.tasks.*
+import org.gradle.process.ExecOperations
+import java.io.File
+import java.security.MessageDigest
+import javax.inject.Inject
 
-/**
- * A simple 'hello world' plugin.
- */
+abstract class VcpkgConfiguration(val name : String) {
+    //abstract val local: Property<String>
+    abstract val gitUrl: Property<String>
+    abstract val gitTag: Property<String>
+    val triplets: MutableList<String> = mutableListOf()
+    fun triplets(vararg triplets : String) {
+        this.triplets.clear()
+        this.triplets.addAll(triplets)
+    }
+    val patches: MutableList<String> = mutableListOf()
+    fun patches(vararg patches : String) {
+        this.patches.clear()
+        this.patches.addAll(patches)
+    }
+    val packages : MutableList<String> = mutableListOf()
+    fun packages(vararg packages : String) {
+        this.packages.clear()
+        this.packages.addAll(packages)
+    }
+}
+
+abstract class PrefabPluginExtension {
+    abstract val message: Property<String>
+
+    abstract val vcpkg: NamedDomainObjectContainer<VcpkgConfiguration>
+
+    init {
+        message.convention("Hello from GreetingPlugin")
+    }
+}
+
+abstract class GitProvisionTask(
+) : DefaultTask() {
+    @Inject
+    abstract fun getExecOperations(): ExecOperations
+
+    @get:Nested
+    abstract val vcpkgRepoCoordinate : Property<VcpkgRepoCoordinate>
+
+    @get:OutputDirectory
+    abstract val localGitFolder : Property<File>
+
+    @TaskAction
+    fun provision() {
+        if (localGitFolder.get().resolve(".git").isDirectory) return
+        val exec = getExecOperations()
+        val gitUrl = vcpkgRepoCoordinate.get().url
+        val gitTag = vcpkgRepoCoordinate.get().tag
+        exec.exec { spec ->
+            spec.commandLine("git", "clone", "--depth=1", "--branch=$gitTag", "--", gitUrl, localGitFolder.get())
+        }
+    }
+}
+
+abstract class BootstrapVcpkgTask(
+) : DefaultTask() {
+    @Inject
+    abstract fun getExecOperations(): ExecOperations
+
+    @get:InputDirectory
+    abstract val localGitFolder : Property<File>
+
+    @get:OutputFile
+    abstract val vcpkgExe : Property<File>
+
+    @TaskAction
+    fun bootstrap() {
+        if (vcpkgExe.get().isFile) return
+        println("Bootstrap ${localGitFolder.get()}")
+        val exec = getExecOperations()
+        exec.exec { spec ->
+            spec.commandLine(localGitFolder.get().resolve("bootstrap-vcpkg.sh"))
+        }
+    }
+}
+
+data class VcpkgRepoCoordinate(
+    @get:Input val url : String,
+    @get:Input val tag : String
+) {
+    private val taskQualifier : String get() = sha256().substring(0..8)
+    val provisionTaskName : String get() = "cloneVcpkg-$taskQualifier"
+    val bootstrapTaskName : String get() = "bootstrapVcpkg-$taskQualifier"
+    val vcpkgExe : File get() = localFolder().resolve("vcpkg")
+}
+
+fun Any.sha256() : String {
+    val bytes = this.toString().toByteArray()
+    val md = MessageDigest.getInstance("SHA-256")
+    val digest = md.digest(bytes)
+    return digest.fold("") { str, it -> str + "%02x".format(it) }
+}
+
+fun Any.localFolder() : File {
+    return File("/Users/jomof/.prefab-plugin/cache/${sha256()}")
+}
+
 class PrefabPlugin: Plugin<Project> {
     override fun apply(project: Project) {
-        // Register a task
-        project.tasks.register("greeting") { task ->
-            task.doLast {
-                println("Hello from plugin 'com.github.jomof.prefab.plugin'")
+        val extension = project.extensions.create("prefab", PrefabPluginExtension::class.java)
+        project.afterEvaluate { project ->
+            val vcpkgRepoCoordinate = VcpkgRepoCoordinate(
+                "https://github.com/microsoft/vcpkg",
+                "2021.05.12")
+
+            project.tasks.register(vcpkgRepoCoordinate.provisionTaskName, GitProvisionTask::class.java) { task ->
+                task.vcpkgRepoCoordinate.set(vcpkgRepoCoordinate)
+                task.localGitFolder.set(vcpkgRepoCoordinate.localFolder())
+            }
+
+            project.tasks.register(vcpkgRepoCoordinate.bootstrapTaskName, BootstrapVcpkgTask::class.java) { task ->
+                task.localGitFolder.set(vcpkgRepoCoordinate.localFolder())
+                task.vcpkgExe.set(vcpkgRepoCoordinate.vcpkgExe)
+                task.dependsOn(vcpkgRepoCoordinate.provisionTaskName)
+            }
+
+            val buildAllPrefab = project.tasks.create("buildAllPrefab")
+            buildAllPrefab.dependsOn(vcpkgRepoCoordinate.bootstrapTaskName)
+
+            project.tasks.findByName("assemble")?.apply {
+                dependsOn(buildAllPrefab)
             }
         }
     }

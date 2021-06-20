@@ -15,23 +15,40 @@ class PrefabPluginFunctionalTest {
     @Test fun `can run task`() {
         // Setup the test build
         val projectDir = File("build/functionalTest")
+        projectDir.deleteRecursively()
         projectDir.mkdirs()
         projectDir.resolve("settings.gradle").writeText("")
         projectDir.resolve("build.gradle").writeText("""
             plugins {
-                id('prefab-plugin')
+                id("prefab-plugin")
             }
-        """)
+            
+            prefab {
+                message = "bob"
+                vcpkg {
+                    "com.github.jomof.prefab" { 
+                        gitUrl = "https://github.com/microsoft/vcpkg"
+                        gitTag = "2021.05.12"
+                        triplets "arm-android", "arm64-android", "x86-android", "x64-android"
+                        patches "patch1.txt", "patch2.txt"
+                        packages "mathc","box2d","tinyxml","glog","zstd","lz4","xxhash","re2",
+                                 "flatbuffers","brotli","libpng","bzip2","zlib","freetype","libyaml",
+                                 "lua","jsoncpp","libyaml","boost"
+                    }
+                }
+            }
+          
+        """.trimIndent())
 
         // Run the build
         val runner = GradleRunner.create()
         runner.forwardOutput()
         runner.withPluginClasspath()
-        runner.withArguments("greeting")
+        runner.withArguments("buildAllPrefab", "--stacktrace")
         runner.withProjectDir(projectDir)
         val result = runner.build();
 
         // Verify the result
-        assertTrue(result.output.contains("Hello from plugin 'com.github.jomof.prefab.plugin'"))
+        //assertTrue(result.output.contains("Hello from plugin 'com.github.jomof.prefab.plugin'"))
     }
 }

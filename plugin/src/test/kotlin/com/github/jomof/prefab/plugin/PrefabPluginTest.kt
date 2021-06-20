@@ -3,18 +3,18 @@
  */
 package com.github.jomof.prefab.plugin
 
+import org.gradle.api.provider.Property
 import org.gradle.testfixtures.ProjectBuilder
 import kotlin.test.Test
 import kotlin.test.assertNotNull
 
-/**
- * A simple unit test for the 'com.github.jomof.prefab.plugin' plugin.
- */
+
 class PrefabPluginTest {
     @Test fun `plugin registers task`() {
         // Create a test project and apply the plugin
         val project = ProjectBuilder.builder().build()
         project.plugins.apply("prefab-plugin")
+        val prefab = project.extensions.getByType(PrefabPluginExtension::class.java)
 
         // Verify the result
         assertNotNull(project.tasks.findByName("greeting"))
