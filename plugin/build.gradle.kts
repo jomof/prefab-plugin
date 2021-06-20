@@ -56,10 +56,10 @@ val functionalTest by tasks.registering(Test::class) {
     classpath = functionalTestSourceSet.runtimeClasspath
 }
 
-//tasks.check {
-//    // Run the functional tests as part of `check`
-//    dependsOn(functionalTest)
-//}
+tasks.check {
+    // Run the functional tests as part of `check`
+    dependsOn(functionalTest)
+}
 
 publishing {
     publications {

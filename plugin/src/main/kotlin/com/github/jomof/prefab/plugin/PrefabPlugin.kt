@@ -55,7 +55,12 @@ abstract class GitProvisionTask(
 
     @TaskAction
     fun provision() {
-        if (localGitFolder.get().resolve(".git").isDirectory) return
+
+        if (localGitFolder.get().resolve(".git").isDirectory) {
+            println("Provision skipped because ${localGitFolder.get()} existed")
+            return
+        }
+        println("Provision ${localGitFolder.get()}")
         val exec = getExecOperations()
         val gitUrl = vcpkgRepoCoordinate.get().url
         val gitTag = vcpkgRepoCoordinate.get().tag
@@ -107,7 +112,7 @@ fun Any.sha256() : String {
 }
 
 fun Any.localFolder() : File {
-    return File("/Users/jomof/.prefab-plugin/cache/${sha256()}")
+    return File(System.getProperty("user.home")).resolve(".prefab-plugin/cache/${sha256()}")
 }
 
 class PrefabPlugin: Plugin<Project> {
