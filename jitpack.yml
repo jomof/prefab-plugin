@@ -1,0 +1,8 @@
+jdk:
+  - openjdk9
+before_install:
+#  - ./custom_setup.sh
+install:
+  - ./gradlew assemble --info --stacktrace
+env:
+  MYVAR: "custom environment variable"
