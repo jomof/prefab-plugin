@@ -3,6 +3,6 @@ jdk:
 before_install:
 #  - ./custom_setup.sh
 install:
-  - ./gradlew assemble --info --stacktrace
+  - ./gradlew assemble check publishToMavenLocal --info --stacktrace
 env:
   MYVAR: "custom environment variable"
