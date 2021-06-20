@@ -73,7 +73,7 @@ publishing {
         }
     }
     publications {
-        create<MavenPublication>("maven") {
+        create<MavenPublication>("gpr") {
             groupId = "com.github.jomof"
             artifactId = "prefab-plugin"
             version = "0.1"
