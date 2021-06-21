@@ -17,7 +17,7 @@ plugins {
 }
 
 group = "com.github.jomof.prefab-plugin"
-version = "0.13"
+version = "0.14"
 
 repositories {
     // Use JCenter for resolving dependencies.
@@ -42,7 +42,7 @@ gradlePlugin {
     // Define the plugin
 
     val myPlugin by plugins.creating {
-        id = "plugin.id"
+        id = "com.github.jomof.prefab-plugin"
         implementationClass = "com.github.jomof.prefab.plugin.PrefabPlugin"
     }
 }
