@@ -42,7 +42,7 @@ gradlePlugin {
     // Define the plugin
 
     val myPlugin by plugins.creating {
-        id = "com.github.jomof.prefab"
+        id = "prefab"
         implementationClass = "com.github.jomof.prefab.plugin.PrefabPlugin"
     }
 }
@@ -80,10 +80,10 @@ publishing {
     //afterEvaluate {
 
         publications{
-            val plugin = maybeCreate<MavenPublication>("pluginMaven")
+ //           val plugin = maybeCreate<MavenPublication>("pluginMaven")
 //            println(plugin)
 //            plugin.groupId = "com.github.jomof.prefab"
-            plugin.artifactId = "xxx-yyy"
+//            plugin.artifactId = "xxx-yyy"
 //            plugin.version = "0.2"
 
 //            create<MavenPublication>("pluginMaven") {
