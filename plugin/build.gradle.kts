@@ -17,7 +17,7 @@ plugins {
 }
 
 //group = "com.github.jomof"
-version = "0.6"
+version = "0.7"
 
 repositories {
     // Use JCenter for resolving dependencies.
