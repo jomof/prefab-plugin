@@ -16,8 +16,8 @@ plugins {
     `maven-publish`
 }
 
-group = "com.github.jomof"
-version = "0.4"
+//group = "com.github.jomof"
+version = "0.6"
 
 repositories {
     // Use JCenter for resolving dependencies.
@@ -42,7 +42,7 @@ gradlePlugin {
     // Define the plugin
 
     val myPlugin by plugins.creating {
-        id = "prefab"
+        id = "plugin.id"
         implementationClass = "com.github.jomof.prefab.plugin.PrefabPlugin"
     }
 }
@@ -83,7 +83,7 @@ publishing {
             val plugin = maybeCreate<MavenPublication>("pluginMaven")
 //            println(plugin)
 //            plugin.groupId = "com.github.jomof.prefab"
-            plugin.artifactId = "prefab"
+//            plugin.artifactId = "prefab"
 //            plugin.version = "0.2"
 
 //            create<MavenPublication>("pluginMaven") {
