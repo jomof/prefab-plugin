@@ -17,7 +17,7 @@ plugins {
 }
 
 group = "com.github.jomof"
-version = "0.3"
+version = "0.4"
 
 repositories {
     // Use JCenter for resolving dependencies.
@@ -80,10 +80,10 @@ publishing {
     //afterEvaluate {
 
         publications{
- //           val plugin = maybeCreate<MavenPublication>("pluginMaven")
+            val plugin = maybeCreate<MavenPublication>("pluginMaven")
 //            println(plugin)
 //            plugin.groupId = "com.github.jomof.prefab"
-//            plugin.artifactId = "xxx-yyy"
+            plugin.artifactId = "prefab"
 //            plugin.version = "0.2"
 
 //            create<MavenPublication>("pluginMaven") {
