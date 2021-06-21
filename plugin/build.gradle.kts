@@ -16,8 +16,8 @@ plugins {
     `maven-publish`
 }
 
-//group = "com.github.jomof"
-version = "0.7"
+group = "com.github.jomof"
+version = "0.8"
 
 repositories {
     // Use JCenter for resolving dependencies.

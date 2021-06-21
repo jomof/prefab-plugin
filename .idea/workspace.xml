@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2091d9f9-603f-47cf-8493-b59b5f868a88" name="Default Changelist" comment="Publish">
+    <list default="true" id="2091d9f9-603f-47cf-8493-b59b5f868a88" name="Default Changelist" comment="Test 8">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plugin/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/plugin/build.gradle.kts" afterDir="false" />
     </list>
@@ -177,7 +177,7 @@
       <option name="presentableId" value="Default" />
       <updated>1624123065724</updated>
       <workItem from="1624123067248" duration="20000" />
-      <workItem from="1624123158688" duration="32089000" />
+      <workItem from="1624123158688" duration="32783000" />
     </task>
     <task id="LOCAL-00001" summary="Rename">
       <created>1624125024851</created>
@@ -326,7 +326,21 @@
       <option name="project" value="LOCAL" />
       <updated>1624300599756</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Test">
+      <created>1624301082332</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1624301082332</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Test 7">
+      <created>1624301443877</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1624301443877</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -348,7 +362,10 @@
     <MESSAGE value="Forward test output" />
     <MESSAGE value="jitpack.yml" />
     <MESSAGE value="Publish" />
-    <option name="LAST_COMMIT_MESSAGE" value="Publish" />
+    <MESSAGE value="Test" />
+    <MESSAGE value="Test 7" />
+    <MESSAGE value="Test 8" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test 8" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
