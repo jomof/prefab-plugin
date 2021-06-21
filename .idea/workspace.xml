@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2091d9f9-603f-47cf-8493-b59b5f868a88" name="Default Changelist" comment="Test 13">
+    <list default="true" id="2091d9f9-603f-47cf-8493-b59b5f868a88" name="Default Changelist" comment="Test 16">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plugin/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/plugin/build.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -176,7 +177,7 @@
       <option name="presentableId" value="Default" />
       <updated>1624123065724</updated>
       <workItem from="1624123067248" duration="20000" />
-      <workItem from="1624123158688" duration="33305000" />
+      <workItem from="1624123158688" duration="34263000" />
     </task>
     <task id="LOCAL-00001" summary="Rename">
       <created>1624125024851</created>
@@ -374,7 +375,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624302197270</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Test 14">
+      <created>1624302536329</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1624302536329</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -402,7 +410,9 @@
     <MESSAGE value="Test 11" />
     <MESSAGE value="Test 12" />
     <MESSAGE value="Test 13" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test 13" />
+    <MESSAGE value="Test 14" />
+    <MESSAGE value="Test 16" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test 16" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
