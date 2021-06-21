@@ -16,8 +16,8 @@ plugins {
     `maven-publish`
 }
 
-group = "com.github.jomof"
-version = "0.12"
+group = "com.github.jomof.prefab-plugin"
+version = "0.13"
 
 repositories {
     // Use JCenter for resolving dependencies.
