@@ -16,6 +16,9 @@ plugins {
     `maven-publish`
 }
 
+group = "com.github.jomof.prefab-plugin"
+version = "0.3"
+
 repositories {
     // Use JCenter for resolving dependencies.
     jcenter()
@@ -73,13 +76,24 @@ publishing {
             }
         }
     }
-//    afterEvaluate {
-//        publications {
+
+    //afterEvaluate {
+
+//        publications{
+//            val plugin = maybeCreate<MavenPublication>("pluginMaven")
+//            println(plugin)
+//            plugin.groupId = "com.github.jomof.prefab"
+//            plugin.artifactId = "plugin.artifactId"
+//            plugin.version = "0.2"
+
 //            create<MavenPublication>("pluginMaven") {
-//
+//                groupId = "com.github.jomof"
+//                artifactId = "prefab-plugin"
+//                version = "0.1"
 //            }
 //        }
-//    }
+//        }
+ //   }
 //    publications {
 //        create<MavenPublication>("gpr") {
 //            groupId = "com.github.jomof"
