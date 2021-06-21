@@ -16,7 +16,7 @@ plugins {
     `maven-publish`
 }
 
-group = "com.github.jomof.prefab-plugin"
+group = "com.github.jomof"
 version = "0.3"
 
 repositories {
@@ -79,11 +79,11 @@ publishing {
 
     //afterEvaluate {
 
-//        publications{
-//            val plugin = maybeCreate<MavenPublication>("pluginMaven")
+        publications{
+            val plugin = maybeCreate<MavenPublication>("pluginMaven")
 //            println(plugin)
 //            plugin.groupId = "com.github.jomof.prefab"
-//            plugin.artifactId = "plugin.artifactId"
+            plugin.artifactId = "xxx-yyy"
 //            plugin.version = "0.2"
 
 //            create<MavenPublication>("pluginMaven") {
@@ -92,7 +92,7 @@ publishing {
 //                version = "0.1"
 //            }
 //        }
-//        }
+        }
  //   }
 //    publications {
 //        create<MavenPublication>("gpr") {
