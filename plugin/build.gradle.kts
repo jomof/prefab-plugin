@@ -37,8 +37,9 @@ dependencies {
 
 gradlePlugin {
     // Define the plugin
-    val greeting by plugins.creating {
-        id = "prefab-plugin"
+
+    val myPlugin by plugins.creating {
+        id = "com.github.jomof.prefab"
         implementationClass = "com.github.jomof.prefab.plugin.PrefabPlugin"
     }
 }
@@ -72,13 +73,20 @@ publishing {
             }
         }
     }
-    publications {
-        create<MavenPublication>("gpr") {
-            groupId = "com.github.jomof"
-            artifactId = "prefab-plugin"
-            version = "0.1"
-
-            from(components["java"])
-        }
-    }
+//    afterEvaluate {
+//        publications {
+//            create<MavenPublication>("pluginMaven") {
+//
+//            }
+//        }
+//    }
+//    publications {
+//        create<MavenPublication>("gpr") {
+//            groupId = "com.github.jomof"
+//            artifactId = "prefab-plugin"
+//            version = "0.1"
+//
+//            from(components["java"])
+//        }
+//    }
 }
